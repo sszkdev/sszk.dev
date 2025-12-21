@@ -6,7 +6,8 @@
   "rules": [
     {
       "type": "Text",
-      "globs": ["**/*.md", "**/*.css"]
+      "globs": ["**/*.md", "**/*.css"],
+      "fallthrough": false
     }
   ]
   // "compatibility_flags": [
