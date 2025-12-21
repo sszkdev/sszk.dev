@@ -5,16 +5,21 @@ import { layout } from "./layout";
 export function renderHome(posts: PostSummary[]) {
   return layout(
     "Home",
-    html`<main>
-      <h1>sszkdev</h1>
-      <ul>
-        ${posts.map(
-          (post) => html`<li>
-            <a href="/posts/${post.date}/${post.slug}">${post.title}</a>
-            <p>${post.excerpt}</p>
-          </li>`
-        )}
-      </ul>
-    </main>`
+    html`<div class="page">
+      <main>
+        <h1>sszkdev</h1>
+        <div class="post-list">
+          ${posts.map(
+            (post) => html`<article class="post-item">
+              <p class="post-date">${post.date}</p>
+              <a class="post-title" href="/posts/${post.date}/${post.slug}"
+                >${post.title}</a
+              >
+              <p class="post-excerpt">${post.excerpt}</p>
+            </article>`
+          )}
+        </div>
+      </main>
+    </div>`
   );
 }

@@ -1,12 +1,55 @@
 :root {
-  --primary-color: #87db47;
-  --secondary-color: #7d5a50;
+  --primary-color: #7d5a50;
+  --secondary-color: #87db47;
   --text-color: #000000;
-  --bg-color: #fff8ed;
+  --bg-color: #fffefd;
 }
 
 body {
   margin: 0;
   color: var(--text-color);
   background: var(--bg-color);
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.post-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+.post-date {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+}
+
+.post-title {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.post-title:hover {
+  text-decoration-thickness: 2px;
+}
+
+.post-excerpt {
+  margin: 0;
+  line-height: 1.6;
 }
