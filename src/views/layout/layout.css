@@ -10,7 +10,3 @@ body {
   color: var(--text-color);
   background: var(--bg-color);
 }
-
-a {
-  color: var(--primary-color);
-}
