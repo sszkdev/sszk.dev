@@ -2,7 +2,13 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sszk-dev",
   "main": "src/index.ts",
-  "compatibility_date": "2025-12-18"
+  "compatibility_date": "2025-12-18",
+  "rules": [
+    {
+      "type": "Text",
+      "globs": ["**/*.md"]
+    }
+  ]
   // "compatibility_flags": [
   //   "nodejs_compat"
   // ],

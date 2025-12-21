@@ -1,10 +1,10 @@
 import { Hono } from "hono";
-import { html, raw } from "hono/html";
+import homeRoutes from "./routes/home";
+import postRoutes from "./routes/posts";
 
 const app = new Hono();
 
-app.get("/", (c) => {
-  return c.html(html`<h1>Hello, sszkdev</h1>`);
-});
+app.route("/", homeRoutes);
+app.route("/posts", postRoutes);
 
 export default app;
