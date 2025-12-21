@@ -3,7 +3,7 @@ import layoutCss from "./layout.css";
 
 export function layout(title: string, body: unknown) {
   return html`<!DOCTYPE html>
-    <html lang="en">
+    <html lang="ja">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@ export function layout(title: string, body: unknown) {
           ${layoutCss}
         </style>
       </head>
-      <body>
+      <body class="noto-serif-jp-default">
         ${body}
       </body>
     </html>`;
