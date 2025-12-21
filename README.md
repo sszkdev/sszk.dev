@@ -5,6 +5,7 @@
 - Hono を使ったシンプルなブログ/個人サイト構成。
 - Markdown を `src/posts/md/` に置くことで記事を管理し、一覧/詳細ページをサーバー側で HTML 化して返却
 - ルーティングは `/`（一覧）、`/posts/:date/:slug`（詳細）、`/font`（Google Fonts の CSS 配信）の構成
+- URL: https://sszk.dev
 
 ## 主要な構造
 
@@ -75,6 +76,7 @@
 - A simple blog/personal site built with Hono.
 - Posts are managed as Markdown files in `src/posts/md/`, rendered to HTML on the server for list/detail pages.
 - Routing includes `/` (list), `/posts/:date/:slug` (detail), and `/font` (Google Fonts CSS).
+- URL: https://sszk.dev
 
 ## Key Structure
 
