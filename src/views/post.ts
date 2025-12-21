@@ -1,12 +1,9 @@
 import { html, raw } from "hono/html";
-import type { Post } from "../posts";
-import { slugToTitle } from "../lib/format";
-import { markdownToHtml } from "../lib/markdown";
+import type { Post } from "../posts/posts";
 import { layout } from "./layout";
 
 export function renderPost(post: Post) {
-  const displayTitle = post.title || slugToTitle(post.slug);
-  const renderedBody = markdownToHtml(post.body);
+  const displayTitle = post.title;
 
   return layout(
     displayTitle,
@@ -14,7 +11,7 @@ export function renderPost(post: Post) {
       <article>
         <h1>${displayTitle}</h1>
         <p>Published: ${post.date}</p>
-        ${raw(renderedBody)}
+        ${raw(post.html)}
       </article>
       <p><a href="/">Back to home</a></p>
     </main>`

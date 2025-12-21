@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listPosts } from "../posts";
+import { listPosts } from "../posts/posts";
 import { renderHome } from "../views/home";
 
 const app = new Hono();

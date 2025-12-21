@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { findPost } from "../posts";
+import { findPost } from "../posts/posts";
 import { renderPost } from "../views/post";
 
 const app = new Hono();
