@@ -1,8 +1,3 @@
----
-title: Second Post
-date: 2024-02-10
-slug: second-post
----
 # Second Post
 
 This is the second post written in Markdown.
