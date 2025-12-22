@@ -15,6 +15,9 @@ export function layout(title: string, body: unknown) {
       </head>
       <body class="noto-serif-jp-default">
         ${body}
+        <footer class="site-footer">
+          <small>&copy; ${new Date().getFullYear()} sszk.dev</small>
+        </footer>
       </body>
     </html>`;
 }
