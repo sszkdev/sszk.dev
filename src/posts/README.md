@@ -13,11 +13,10 @@
 - 最初の空行ではない行は `# ` から始めてタイトルにする。
 - タイトルがない場合は `Set Title using "# Title in start"`とフォールバックで設定される
 
-## 対応 Markdown（現状）
+## 対応 Markdown
 
-- 見出し: `#` 〜 `######`
-- 箇条書き: `- item`
-- 段落: プレーンテキストの行から構成
+- Markdown 変換は `marked` を使用。
+- 記法の対応範囲は `marked`（GFM を含む）に準拠。
 
 # Posts
 
@@ -32,8 +31,7 @@
 - The first non-empty line should start with `# ` and is used as the title.
 - If no title is found, it falls back to `Set Title using "# Title in start"`.
 
-## Supported Markdown (Current)
+## Supported Markdown
 
-- Headings: `#` to `######`
-- Lists: `- item`
-- Paragraphs: plain text lines
+- Markdown conversion uses `marked`.
+- Syntax support follows `marked` (including GFM).

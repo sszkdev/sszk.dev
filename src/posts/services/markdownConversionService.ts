@@ -1,3 +1,4 @@
+import { marked } from "marked";
 import type { PostDetail } from "./postService";
 
 export class MarkdownConversionService {
@@ -70,71 +71,10 @@ export class MarkdownConversionService {
   }
 
   private renderMarkdown(markdown: string): string {
-    const lines = markdown.split(/\r?\n/);
-    const htmlParts: string[] = [];
-    let paragraphLines: string[] = [];
-    let inList = false;
-
-    const flushParagraph = () => {
-      if (!paragraphLines.length) {
-        return;
-      }
-      htmlParts.push(`<p>${this.escapeHtml(paragraphLines.join(" "))}</p>`);
-      paragraphLines = [];
-    };
-
-    const closeList = () => {
-      if (inList) {
-        htmlParts.push("</ul>");
-        inList = false;
-      }
-    };
-
-    for (const line of lines) {
-      const trimmed = line.trim();
-      if (!trimmed) {
-        flushParagraph();
-        closeList();
-        continue;
-      }
-
-      const headingMatch = trimmed.match(/^(#{1,6})\s+(.+)/);
-      if (headingMatch) {
-        flushParagraph();
-        closeList();
-        const level = headingMatch[1].length;
-        htmlParts.push(
-          `<h${level}>${this.escapeHtml(headingMatch[2].trim())}</h${level}>`
-        );
-        continue;
-      }
-
-      const listMatch = trimmed.match(/^-+\s+(.+)/);
-      if (listMatch) {
-        flushParagraph();
-        if (!inList) {
-          htmlParts.push("<ul>");
-          inList = true;
-        }
-        htmlParts.push(`<li>${this.escapeHtml(listMatch[1].trim())}</li>`);
-        continue;
-      }
-
-      paragraphLines.push(trimmed);
+    const html = marked.parse(markdown, { async: false });
+    if (typeof html !== "string") {
+      throw new Error("Expected synchronous markdown rendering.");
     }
-
-    flushParagraph();
-    closeList();
-
-    return htmlParts.join("");
-  }
-
-  private escapeHtml(value: string): string {
-    return value
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
+    return html;
   }
 }

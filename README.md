@@ -3,7 +3,7 @@
 [English version here](#about-this-project)
 
 - Hono を使ったシンプルなブログ/個人サイト構成。
-- Markdown を `src/posts/md/` に置くことで記事を管理し、一覧/詳細ページをサーバー側で HTML 化して返却
+- Markdown を `src/posts/md/` に置くことで記事を管理し、一覧/詳細ページをサーバー側で HTML 化して返却（変換は `marked` を使用）
 - ルーティングは `/`（一覧）、`/posts/:date/:slug`（詳細）、`/font`（Google Fonts の CSS 配信）の構成
 - URL: https://sszk.dev
 
@@ -59,7 +59,7 @@
 - `src/index.ts` が各ルートに振り分け。
 - `/` は `listPosts()` で全記事を取得し、`src/views/home.ts` で一覧 HTML に変換。
 - `/posts/:date/:slug` は `findPost()` で該当記事を探し、`src/views/post.ts` で詳細 HTML に変換。
-- 記事パースは `src/posts/services/markdownConversionService.ts` が担当。ファイル名から日付/slug を抽出し、本文からタイトル/抜粋/HTML を生成。
+- 記事パースは `src/posts/services/markdownConversionService.ts` が担当。ファイル名から日付/slug を抽出し、本文からタイトル/抜粋/HTML を生成（Markdown 変換は `marked`）。
 
 ## Post のルール（ファイル命名や Markdown 制約）
 
@@ -74,7 +74,7 @@
 ## About This Project
 
 - A simple blog/personal site built with Hono.
-- Posts are managed as Markdown files in `src/posts/md/`, rendered to HTML on the server for list/detail pages.
+- Posts are managed as Markdown files in `src/posts/md/`, rendered to HTML on the server for list/detail pages (conversion uses `marked`).
 - Routing includes `/` (list), `/posts/:date/:slug` (detail), and `/font` (Google Fonts CSS).
 - URL: https://sszk.dev
 
@@ -92,7 +92,7 @@
 - `src/index.ts` routes incoming requests.
 - `/` uses `listPosts()` and `src/views/home.ts` to render the list page.
 - `/posts/:date/:slug` uses `findPost()` and `src/views/post.ts` to render the detail page.
-- Parsing/rendering is handled by `src/posts/services/markdownConversionService.ts`, extracting date/slug from filenames and generating title/excerpt/HTML from content.
+- Parsing/rendering is handled by `src/posts/services/markdownConversionService.ts`, extracting date/slug from filenames and generating title/excerpt/HTML from content (Markdown conversion uses `marked`).
 
 ## Post Rules (Naming and Markdown Constraints)
 
