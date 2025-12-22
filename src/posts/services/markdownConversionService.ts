@@ -56,11 +56,11 @@ export class MarkdownConversionService {
         continue;
       }
       excerptLines.push(this.stripMarkdownPrefix(trimmed));
-      if (excerptLines.length >= 3) {
+      if (excerptLines.join(" ").length >= 100) {
         break;
       }
     }
-    return excerptLines.join(" ");
+    return excerptLines.join(" ").slice(0, 100);
   }
 
   private stripMarkdownPrefix(line: string): string {
