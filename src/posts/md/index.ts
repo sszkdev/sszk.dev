@@ -1,5 +1,5 @@
 import postHelloWorld from "./2025-12-21-hello-world.md";
-import postNewTechStack from "./2025-12-22-new-tech-stack.md";
+import postNewService from "./2025-12-22-new-service.md";
 
 // Prompt template for future updates:
 // "src/posts/md/ のファイル構成を変更しました。現在の md 配下のファイル一覧に合わせて
@@ -7,5 +7,5 @@ import postNewTechStack from "./2025-12-22-new-tech-stack.md";
 
 export const posts = [
   { filename: "2025-12-21-hello-world.md", content: postHelloWorld },
-  { filename: "2025-12-22-new-tech-stack.md", content: postNewTechStack },
+  { filename: "2025-12-22-new-service.md", content: postNewService },
 ];
