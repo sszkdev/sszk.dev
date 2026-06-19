@@ -28,10 +28,15 @@ export interface PostDetail extends PostSummary {
 export class PostService {
   private conversionService = new MarkdownConversionService();
 
+  // draft を除いた公開記事だけを parse して返す。
+  private publishedPosts() {
+    return posts
+      .filter((post) => !post.draft)
+      .map((post) => this.conversionService.parse(post.content, post.filename));
+  }
+
   listPosts(): PostSummary[] {
-    const allPosts = posts.map((post) =>
-      this.conversionService.parse(post.content, post.filename)
-    );
+    const allPosts = this.publishedPosts();
 
     return allPosts
       .slice()
@@ -45,9 +50,7 @@ export class PostService {
   }
 
   getPost(date: string, slug: string): PostDetail | null {
-    const allPosts = posts.map((post) =>
-      this.conversionService.parse(post.content, post.filename)
-    );
+    const allPosts = this.publishedPosts();
 
     return allPosts.find((post) => post.date === date && post.slug === slug) ?? null;
   }
