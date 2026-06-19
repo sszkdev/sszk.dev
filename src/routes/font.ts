@@ -3,18 +3,16 @@ import { Hono } from "hono";
 const app = new Hono();
 
 app.get("/", (c) => {
-  const css = `@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap");
-
-body {
-  font-family: "Noto Serif JP", serif;
-  font-optical-sizing: auto;
+  const css = `body {
+  font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans",
+    "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-.noto-serif-jp-default {
-  font-family: "Noto Serif JP", serif;
-  font-optical-sizing: auto;
+.font-default {
+  font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans",
+    "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
